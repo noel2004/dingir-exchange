@@ -76,6 +76,10 @@ export async function marketSummary(market) {
   return (await client.MarketSummary({ market: [market] })).market_summaries;
 }
 
+export async function reloadMarkets(full) {
+  return await client.ReloadMarkets({ from_scratch: full || false });
+}
+
 export async function orderCancel(user_id, market, order_id) {
   return await client.OrderCancel({ user_id, market, order_id });
 }
